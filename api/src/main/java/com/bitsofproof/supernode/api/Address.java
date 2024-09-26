@@ -241,7 +241,10 @@ public class Address
 				throw new ValidationException ("unknown address type");
 			}
 		}
-
+		else
+		{
+			throw new ValidationException ("unknown network");
+		}
 		byte[] addressBytes = new byte[1 + keyDigest.length + 4];
 		addressBytes[0] = (byte) (addressFlag & 0xff);
 		System.arraycopy (keyDigest, 0, addressBytes, 1, keyDigest.length);
